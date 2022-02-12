@@ -13,24 +13,29 @@ Home :
 User :
 
     User info :
-        GET ⇒ /me
-        POST ⇒ /me
+        GET ⇒ /me | ⇒/user
+        PUT ⇒ /me
         DELETE ⇒ /me
 
     User posts :
-        GET ⇒ /me/posts
+        GET ⇒ /user/posts
 
 Feed :
 
     Posts :
         GET ⇒ /post/all
         POST ⇒ /post/publish
+        PUT ⇒ /post/:id
         DELETE ⇒ /post/:id
+        
 
     Comments :
-        GET ⇒ /post/comments/:id
+        GET ⇒ /post/:id/comments
+        POST ⇒ /post/:id/comments/publish
+        DELETE ⇒ /post/:id/comments/:id
+        PUT ⇒ /post/:id/comments/:id
 
     Likes :
-        POST ⇒ /like/:id
+        PUT ⇒ /post/:id/like
 
 */
