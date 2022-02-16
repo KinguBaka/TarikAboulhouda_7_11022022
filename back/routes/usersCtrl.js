@@ -86,7 +86,7 @@ module.exports = {
         });
     },
 
-    getUserProfile: (req, res) => {
+    getMyProfile: (req, res) => {
         // Getting auth header
         var headerAuth = req.headers['authorization'];
         var userId = jwtUtils.getUserId(headerAuth);
@@ -94,13 +94,37 @@ module.exports = {
         if (userId < 0) {
             return res.status(400).json({ 'error': 'Mauvais token' });
         }
-        
         models.User.findOne({
             attributes: ['id', 'email', 'username', 'bio', 'isAdmin'],
             where: { id: userId }
         }).then(user => {
             if (user) {
                 res.status(201).json(user);
+            } else {
+                res.status(404).json({ 'error' : 'Utilisateur introuvable'})
+            }
+        }).catch(err => {
+            res.status(500).json({ 'error' : "impossible de récupérer l'utilisateur: " + err})
+        })
+    },
+
+    getUserProfile: (req, res) => {
+        // Getting auth header
+        var headerAuth = req.headers['authorization'];
+        var myId = jwtUtils.getUserId(headerAuth);
+
+        // Params
+        var userId = req.body.id
+
+        if (myId < 0) {
+            return res.status(400).json({ 'error': 'Mauvais token' });
+        }
+        models.User.findOne({
+            attributes: ['username', 'id'],
+            where:{id : userId}
+        }).then(user => {
+            if (user) {
+            res.status(201).json(user);
             } else {
                 res.status(404).json({ 'error' : 'Utilisateur introuvable'})
             }

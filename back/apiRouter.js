@@ -13,8 +13,8 @@ exports.router = ( () => {
     // Users routes
     apiRouter.route('/signup').post(validationRule.formLogin, usersCtrl.validateForm ,usersCtrl.signup);
     apiRouter.route('/login').post(usersCtrl.login);
-    apiRouter.route('/me').get(usersCtrl.getUserProfile);
-    //apiRouter.route('/user/posts').get(usersCtrl.getUserProfile);
+    apiRouter.route('/me').get(usersCtrl.getMyProfile);
+    apiRouter.route('/user').get(usersCtrl.getUserProfile);
     apiRouter.route('/me').delete(usersCtrl.deleteUserProfile);
     apiRouter.route('/me').put(validationRule.formModif, usersCtrl.validateForm ,usersCtrl.modifUserProfil);
 
