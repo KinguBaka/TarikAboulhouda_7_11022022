@@ -1,36 +1,44 @@
 // Import
 const { check } = require('express-validator');
 
-exports.formLogin =[
+exports.verifLogin =[
     // first Name validation
-    check('email').notEmpty().withMessage('email required')
-    .normalizeEmail().isEmail().withMessage('must be a valid email'),
+    check('email').notEmpty().withMessage('Email requis !')
+    .normalizeEmail().isEmail().withMessage('Doit-être un email valide !'),
     // username address validation
-    check('username').isLength({min:4, max:13}).withMessage('username must be between 4 and 13 length')
+    check('username').isLength({min:4, max:13}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
     .notEmpty().withMessage('username required')
-    .matches(/^[a-zA-Z ]*$/).withMessage('Only Characters with white space are allowed'),
+    .matches(/^[a-zA-Z ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
     // password address validation
-    check('password').notEmpty().withMessage('password required')
-    .isLength({min:4, max:8}).withMessage('password must be between 4 and 8 length')
-    .matches(/(?=.*?[A-Z])/).withMessage('At least one Uppercase')
-    .matches(/(?=.*?[a-z])/).withMessage('At least one Lowercase')
-    .matches(/(?=.*?[0-9])/).withMessage('At least one Number')
-    .not().matches(/^$|\s+/).withMessage('White space not allowed')
+    check('password').notEmpty().withMessage('Mot de passe requis !')
+    .isLength({min:5, max:12}).withMessage('Mauvais mot de passe renseigné (doit faire entre 5 - 12 caractéres)')
+    .matches(/(?=.*?[A-Z])/).withMessage('Mauvais mot de passe renseigné (doit contenir une majuscule)')
+    .matches(/(?=.*?[a-z])/).withMessage('Mauvais mot de passe renseigné (doit contenir une minuscule)')
+    .matches(/(?=.*?[0-9])/).withMessage('Mauvais mot de passe renseigné (doit contenir un chiffre)')
+    .not().matches(/^$|\s+/).withMessage('Mauvais mot de passe renseigné (ne dois pas contenit un espace)')
 ];
 
-exports.formModif =[
+exports.verifModif =[
     // first Name validation
     check('email').optional()
-    .normalizeEmail().isEmail().withMessage('must be a valid email'),
+    .normalizeEmail().isEmail().withMessage('Doit-être un email valide !'),
     // username address validation
     check('username').optional()
-    .isLength({min:4, max:13}).withMessage('username must be between 4 and 13 length')
-    .matches(/^[a-zA-Z ]*$/).withMessage('Only Characters with white space are allowed'),
+    .isLength({min:4, max:13}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
+    .matches(/^[a-zA-Z ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
     // password address validation
     check('password').optional()
-    .isLength({min:4, max:8}).withMessage('password must be between 4 and 8 length')
-    .matches(/(?=.*?[A-Z])/).withMessage('At least one Uppercase')
-    .matches(/(?=.*?[a-z])/).withMessage('At least one Lowercase')
-    .matches(/(?=.*?[0-9])/).withMessage('At least one Number')
-    .not().matches(/^$|\s+/).withMessage('White space not allowed')
+    .isLength({min:5, max:12}).withMessage('Mauvais mot de passe renseigné (doit faire entre 5 - 12 caractéres)')
+    .matches(/(?=.*?[A-Z])/).withMessage('Mauvais mot de passe renseigné (doit contenir une majuscule)')
+    .matches(/(?=.*?[a-z])/).withMessage('Mauvais mot de passe renseigné (doit contenir une minuscule)')
+    .matches(/(?=.*?[0-9])/).withMessage('Mauvais mot de passe renseigné (doit contenir un chiffre)')
+    .not().matches(/^$|\s+/).withMessage('Mauvais mot de passe renseigné (ne dois pas contenit un espace)')
+];
+
+exports.verifPost = [
+    // title validation
+    check('title').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    .notEmpty().withMessage('Paramétres manquants'),
+    check('content').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    .notEmpty().withMessage('Paramétres manquants')
 ];
