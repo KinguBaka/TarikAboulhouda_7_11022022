@@ -11,12 +11,12 @@ exports.router = ( () => {
     const apiRouter = express.Router();
 
     // Users routes
-    apiRouter.route('/signup').post(validationRule.form, usersCtrl.validateForm ,usersCtrl.signup);
+    apiRouter.route('/signup').post(validationRule.formLogin, usersCtrl.validateForm ,usersCtrl.signup);
     apiRouter.route('/login').post(usersCtrl.login);
-    //apiRouter.route('/me').get(usersCtrl.getUserProfile);
+    apiRouter.route('/me').get(usersCtrl.getUserProfile);
     //apiRouter.route('/user/posts').get(usersCtrl.getUserProfile);
-    //apiRouter.route('/me').delete(usersCtrl.deleteUserProfile);
-    //apiRouter.route('/me').put(usersCtrl.modifUserProfil);
+    apiRouter.route('/me').delete(usersCtrl.deleteUserProfile);
+    apiRouter.route('/me').put(validationRule.formModif, usersCtrl.validateForm ,usersCtrl.modifUserProfil);
 
     // Posts routes
     //apiRouter.route('/post/publish').post(multer, postsCtrl.createMessage);
