@@ -39,6 +39,13 @@ exports.verifPost = [
     // title validation
     check('title').isLength({min:2}).withMessage('Titre ou contenu trop court !')
     .notEmpty().withMessage('Paramétres manquants'),
+    // comment validation
+    check('content').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    .notEmpty().withMessage('Paramétres manquants')
+];
+
+exports.verifComment = [
+    // comment validation
     check('content').isLength({min:2}).withMessage('Titre ou contenu trop court !')
     .notEmpty().withMessage('Paramétres manquants')
 ];

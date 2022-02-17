@@ -28,11 +28,11 @@ exports.router = ( () => {
     apiRouter.route('/post/:id/like').put(postsCtrl.likePost);
 
     // Comments routes
-    //apiRouter.route('/post/:id/comments/publish').post(commentsCtrl.createComment);
-    //apiRouter.route('/post/:id/comments').get(commentsCtrl.listAllComment);
-    //apiRouter.route('/post/:id/comments').get(commentsCtrl.listComment);
-    //apiRouter.route('/post/:id/comments/:id').put(commentsCtrl.modifComment);
-    //apiRouter.route('/post/:id/comments/:id').delete(commentsCtrl.deleteComment);
+    apiRouter.route('/post/:idPost/comment/publish').post(validationRule.verifComment, usersCtrl.validateForm, commentsCtrl.createComment);
+    //apiRouter.route('/comments').get(commentsCtrl.listAllComment);
+    apiRouter.route('/post/:idPost/comment').get(commentsCtrl.listComment);
+    apiRouter.route('/post/:idPost/comment/:idComment').put(validationRule.verifComment, usersCtrl.validateForm, commentsCtrl.modifComment);
+    apiRouter.route('/post/:idPost/comment/:idComment').delete(commentsCtrl.deleteComment);
 
     /*
     Home :
