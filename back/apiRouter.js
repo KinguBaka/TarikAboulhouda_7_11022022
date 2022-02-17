@@ -22,6 +22,7 @@ exports.router = ( () => {
     // Posts routes
     apiRouter.route('/post/publish').post(multer, validationRule.verifPost, usersCtrl.validateForm , postsCtrl.createPost);
     apiRouter.route('/post/all').get(postsCtrl.listPost);
+    apiRouter.route('/user/:id/post').get(postsCtrl.listUserPost);
     apiRouter.route('/post/:id').put(multer, validationRule.verifPost, usersCtrl.validateForm, postsCtrl.modifPost);
     apiRouter.route('/post/:id').delete(postsCtrl.deletePost);
     apiRouter.route('/post/:id/like').put(postsCtrl.likePost);
