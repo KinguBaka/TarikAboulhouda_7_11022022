@@ -3,7 +3,6 @@ const models = require('../models');
 const jwtUtils = require('../utils/jwt.utils');
 
 // Constants
-//const CONTENT_LIMIT = 4;
 const ITEMS_LIMIT = 50;
 
 // Routes
@@ -17,14 +16,7 @@ module.exports = {
         
         // Params
         var content = req.body.content;
-        
-        /*if (content == null ) {
-            return res.status(400).json({ 'error' : 'Paramétres manquants'});
-        }
-        
-        if (content.length < CONTENT_LIMIT ) {
-            return res.status(400).json({ 'error' : 'Titre ou contenu trop court '});
-        }*/
+    
         
         models.User.findOne({
             where: { id: idCurrentUser }
@@ -101,13 +93,6 @@ module.exports = {
         
         // Params
         var content = req.body.content;
-        /*if (content.length < CONTENT_LIMIT ) {
-            return res.status(400).json({ 'error' : 'Contenu trop court '});
-        }
-        
-        if (content === null) {
-            return res.status(400).json({ 'error' : 'Paramétres manquants'});
-        };*/
         
         var value = {content : content};
         
