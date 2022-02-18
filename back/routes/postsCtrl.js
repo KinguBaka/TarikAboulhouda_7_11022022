@@ -167,7 +167,6 @@ module.exports = {
                     {where : {id: req.params.id , userId: userFound.id}}
                 )
                 .then(modifPost => {
-                    console.log(modifPost)
                     if (modifPost == 1) {
                         return res.status(201).json({'message' : 'Message modifié '});
                     } else {
@@ -188,7 +187,6 @@ module.exports = {
         var headerAuth = req.headers['authorization'];
         var idCurrentUser = jwtUtils.getUserId(headerAuth);
         var userIsAdmin = jwtUtils.UserIsAdmin(headerAuth);
-        console.log(userIsAdmin)
         
         models.Post.findOne({where : {id : req.params.id }})
         .then(post => {

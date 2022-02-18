@@ -114,7 +114,7 @@ module.exports = {
         var myId = jwtUtils.getUserId(headerAuth);
 
         // Params
-        var userId = req.body.id
+        var userId = req.params.id
 
         if (myId < 0) {
             return res.status(400).json({ 'error': 'Mauvais token' });

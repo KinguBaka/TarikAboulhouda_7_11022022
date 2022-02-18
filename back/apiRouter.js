@@ -15,9 +15,9 @@ exports.router = ( () => {
     apiRouter.route('/signup').post(validationRule.verifLogin, usersCtrl.validateForm ,usersCtrl.signup);
     apiRouter.route('/login').post(usersCtrl.login);
     apiRouter.route('/me').get(usersCtrl.getMyProfile);
-    apiRouter.route('/user').get(usersCtrl.getUserProfile);
-    apiRouter.route('/me').delete(usersCtrl.deleteUserProfile);
+    apiRouter.route('/user/:id').get(usersCtrl.getUserProfile);
     apiRouter.route('/me').put(validationRule.verifModif, usersCtrl.validateForm, usersCtrl.modifUserProfil);
+    apiRouter.route('/me').delete(usersCtrl.deleteUserProfile);
 
     // Posts routes
     apiRouter.route('/post/publish').post(multer, validationRule.verifPost, usersCtrl.validateForm , postsCtrl.createPost);
