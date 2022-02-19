@@ -1,7 +1,7 @@
 initialisation du back : 
     --> depuis la racide du back : ../TarikAboulhouda_7_11022022/back
 
-"npm init" : Installation des dépendences
+"npm install" : Installation des dépendences
 
 "nodemon" : Lancement sur le port 3000 par default
 
