@@ -52,7 +52,7 @@ module.exports = {
         });
     },
     
-    listComment: (req, res) => {
+    /*listComment: (req, res) => {
         // Params 
         var fields = req.query.fields;
         var limit = parseInt(req.query.limit);
@@ -84,7 +84,7 @@ module.exports = {
         .catch(err =>{
             res.status(500).json({ 'error' : 'Champs invalides ' + err});
         })
-    },
+    },*/
 
     modifComment: (req, res) => {
         // Getting auth header
@@ -149,7 +149,7 @@ module.exports = {
             });
         },
         
-        /*listAllComment: (req, res) => {
+        listAllComment: (req, res) => {
             // Getting auth header
             var fields = req.query.fields;
             var limit = parseInt(req.query.limit);
@@ -180,6 +180,6 @@ module.exports = {
             .catch(err =>{
                 res.status(500).json({ 'error' : 'Champs invalides ' + err});
             })
-        }*/
+        }
         
     }

@@ -9,6 +9,8 @@
         <router-link to="/signup"> Signup </router-link>
       </div>
       <div v-if="user">
+        <router-link to="/"> Acceuil </router-link>
+        <router-link to="/myprofil"> Mon profil </router-link>
         <Logout/>
       </div>
     </div>
