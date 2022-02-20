@@ -1,5 +1,6 @@
 <template>
     <div id="posts">
+        <CreatePost />
         <div v-for="post of posts" :key="post.id" class="postAndComment">
             <div :id="post.id" class="post">
                 <h2> {{ post.User.username }} </h2>
@@ -26,6 +27,7 @@
     import axios from 'axios'
     import {mapGetters} from 'vuex'
     import format_date from '../moment/moment'
+    import CreatePost from '../components/CreatePost.vue'
 
     export default {
         name: 'Posts',
@@ -47,6 +49,9 @@
         mounted: function() {
             this.listPosts(),
             this.listComment()
+        },
+        components : {
+            CreatePost
         }
     }
 </script>

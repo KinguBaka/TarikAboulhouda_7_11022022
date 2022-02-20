@@ -161,7 +161,7 @@ module.exports = {
             }
     
             models.Comment.findAll({
-                order : [(order !=null) ? order.split(':') : ['content', 'ASC']],
+                order : [(order !=null) ? order.split(':') : ['createdAt', 'ASC']],
                 attributes: (fields !== '*' && fields != null) ? fields.split(',') : null,
                 limit: (!isNaN(limit)) ? limit: null,
                 offset: (!isNaN(offset)) ? offset : null,

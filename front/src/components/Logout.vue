@@ -12,6 +12,7 @@
         methods: {
             logout() {
                 localStorage.removeItem('token');
+                sessionStorage.clear();
                 this.$store.dispatch('user', null);
                 this.$store.dispatch('posts', null);
                 this.$store.dispatch('comments', null);
