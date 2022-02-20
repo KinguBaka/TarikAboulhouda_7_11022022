@@ -17,7 +17,7 @@
     export default {
         name: 'Home',
         computed: {
-            ...mapGetters(['user'])
+          ...mapGetters(['user'])
         },
         components : {
             Posts

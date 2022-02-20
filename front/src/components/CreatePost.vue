@@ -28,10 +28,8 @@
                 body.append('attachment', this.attachment)
 
                 await axios.post('/post/publish', body)
-                .then(() => {
-                    this.$router.push('/');
-                    //window.location.reload();
-                })
+                const response = await axios.get('/post/all')
+                this.$store.dispatch('posts', response.data)
             },
             handleFileUpload() {
                 this.attachment = this.$refs.file.files[0];

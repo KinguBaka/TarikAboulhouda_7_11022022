@@ -19,6 +19,7 @@
                     </div>
                 </div>
             </div>
+            <CreateComment :idPost="post.id" />
         </div>
     </div>
 </template>
@@ -28,6 +29,7 @@
     import {mapGetters} from 'vuex'
     import format_date from '../moment/moment'
     import CreatePost from '../components/CreatePost.vue'
+    import CreateComment from '../components/CreateComment.vue'
 
     export default {
         name: 'Posts',
@@ -51,7 +53,8 @@
             this.listComment()
         },
         components : {
-            CreatePost
+            CreatePost,
+            CreateComment
         }
     }
 </script>
