@@ -4,7 +4,7 @@
         <input require v-model="title" placeholder="Votre titre !"/>
         <textarea require rows="5" v-model="content" placeholder="Que voulez-vous dire?"></textarea>
         <input type="file" id="file" ref="file" accept="image/png, image/jpeg" @change="handleFileUpload()">
-        <button  @click.prevent="createMessage" class="btn btn-primary">Publier</button>
+        <button  @click.prevent="createPost" class="btn btn-primary">Publier</button>
     </div>
 </template>
 
@@ -12,7 +12,7 @@
     import axios from 'axios'
 
     export default {
-        name: 'CreateMessage',
+        name: 'CreatePost',
         data(){
             return {
                 title:'',
@@ -21,7 +21,7 @@
             }
         },
         methods : {
-            async createMessage() {
+            async createPost() {
                 let body = new FormData();
                 body.append('title', this.title);
                 body.append('content', this.content);

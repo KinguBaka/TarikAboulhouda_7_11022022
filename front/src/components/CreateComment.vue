@@ -1,7 +1,7 @@
 <template>
     <div id="createComment">
         <textarea require v-model="content"  placeholder="Ecrivez un commentaire..."></textarea>
-        <button  @click.prevent="createComment(idPost)" >Commenter</button>
+        <button value="Clear" @click.prevent="createComment(idPost)" >Commenter</button>
     </div>
 </template>
 

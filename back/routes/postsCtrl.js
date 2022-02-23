@@ -138,9 +138,14 @@ module.exports = {
         var idCurrentUser = jwtUtils.getUserId(headerAuth);
 
         // Params
-        var title = req.body.title;
-        var content = req.body.content;
+        if (req.body.title | req.body.title !== "") {
+            var title = req.body.title;
+        }
 
+        if (req.body.content | req.body.content !== "") {
+            var content = req.body.content;
+        }
+        
         if (req.file) {
             var attachment = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
         }
@@ -152,10 +157,11 @@ module.exports = {
             if(userFound) {
                 models.Post.findOne({where : {id : req.params.id }})
                 .then(post =>{
-                    if (req.attachment) {
+                    if (req.file) {
                         const filename = post.attachment.split("/images/")[1];
-                        fs.unlink(`public/images/${filename}`, () =>
-                            console.log("Image supprimée")
+                        fs.unlink(`./public/images/${filename}`, () =>
+                            console.log("Image supprimée"),
+                            console.log(`${filename}`)
                         )
                     }
                 })
@@ -193,7 +199,7 @@ module.exports = {
             if (idCurrentUser === post.userId || userIsAdmin === true ) {
                 if (post.attachment) {
                     const filename = post.attachment.split("/images/")[1];
-                    fs.unlink(`public/images/${filename}`, () => {
+                    fs.unlink(`./public/images/${filename}`, () => {
                         post.destroy()
                         res.status(200).json({ message : " Message supprimé et attachment supprimé !"}); 
                     })

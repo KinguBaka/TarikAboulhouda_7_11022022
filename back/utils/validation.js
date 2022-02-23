@@ -37,15 +37,24 @@ exports.verifModif =[
 
 exports.verifPost = [
     // title validation
-    check('title').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    check('title').isLength({min:2}).withMessage('Titre trop court !')
     .notEmpty().withMessage('Paramétres manquants'),
     // comment validation
-    check('content').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    check('content').isLength({min:2}).withMessage('Contenu trop court !')
     .notEmpty().withMessage('Paramétres manquants')
+];
+
+exports.verifModifPost = [
+    // title validation
+    check('title').isLength({min:2}).withMessage('Titre trop court !')
+    .optional({ checkFalsy: true }),
+    // comment validation
+    check('content').isLength({min:2}).withMessage('Titre contenu trop court !')
+    .optional({ checkFalsy: true })
 ];
 
 exports.verifComment = [
     // comment validation
-    check('content').isLength({min:2}).withMessage('Titre ou contenu trop court !')
+    check('content').isLength({min:2}).withMessage('Contenu trop court !')
     .notEmpty().withMessage('Paramétres manquants')
 ];
