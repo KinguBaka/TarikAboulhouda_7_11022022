@@ -157,11 +157,10 @@ module.exports = {
             if(userFound) {
                 models.Post.findOne({where : {id : req.params.id }})
                 .then(post =>{
-                    if (req.file) {
+                    if (post.attachment !== null) {
                         const filename = post.attachment.split("/images/")[1];
                         fs.unlink(`./public/images/${filename}`, () =>
-                            console.log("Image supprimée"),
-                            console.log(`${filename}`)
+                            console.log("Image supprimée")
                         )
                     }
                 })

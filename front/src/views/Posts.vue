@@ -7,7 +7,7 @@
                     <i class="fas fa-edit edit" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
-                            <button v-if="post.UserId === user.id || user.isAdmin === true" class="btn btn-danger" @click.prevent="deletepost(post.id)">Supprimer</button>
+                            <button v-if="post.UserId === user.id || user.isAdmin === true" class="btn btn-danger" @click.prevent="deletePost(post.id)">Supprimer</button>
                         </li>
                         <li>
                             <button v-if="post.UserId === user.id" class="btn btn-primary" @click.prevent="modifPost(post.id)" data-bs-toggle="offcanvas" 
@@ -71,6 +71,11 @@
             },
             modifPost(id) {
                 this.modifPostId = id
+            },
+            async deletePost(id) {
+                await axios.delete('/post/'+ id)
+                const response = await axios.get('/post/all')
+                this.$store.dispatch('posts', response.data)
             }
         },
         mounted: function() {
