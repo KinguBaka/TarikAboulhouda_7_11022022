@@ -25,6 +25,18 @@
             </div>
             <div v-for="comment of comments" :key="comment.id">
                 <div v-if="comment.PostId === post.id" class="comment">
+                    <div class="dropdown" v-if="comment.UserId === user.id || user.isAdmin === true">
+                        <i class="fas fa-edit edit" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <button v-if="comment.UserId === user.id || user.isAdmin === true" class="btn btn-danger" @click.prevent="deleteComment(comment.PostId, comment.id)">Supprimer</button>
+                            </li>
+                            <li>
+                                <button v-if="comment.UserId === user.id" class="btn btn-primary" @click.prevent="modifComment(comment.id, comment.PostId)" data-bs-toggle="offcanvas" 
+                                data-bs-target="#offcanvasWithBackdrop2" aria-controls="offcanvasWithBackdrop2">Modifier</button>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="commentContent">
                         <p class="commentUsername"> {{comment.User.username}} </p>
                         <p> {{comment.content}} </p>
@@ -35,6 +47,7 @@
             <CreateComment :idPost="post.id" />
         </div>
         <ModifPost :postId="this.modifPostId" />
+        <ModifComment :idPostModif="this.modifCommentPostId" :idComment="modifCommentId" />
     </div>
 </template>
 
@@ -46,12 +59,15 @@
     import CreateComment from '../components/CreateComment.vue'
     import ModifPost from '../components/ModifPost.vue'
     import LikePost from '../components/LikePost.vue'
+    import ModifComment from '../components/ModifComment.vue'
 
     export default {
         name: 'Posts',
         data() {
             return {
-                modifPostId: 0
+                modifPostId: 0,
+                modifCommentId: 0,
+                modifCommentPostId: 0
             }
         },
         computed : {
@@ -76,6 +92,14 @@
                 await axios.delete('/post/'+ id)
                 const response = await axios.get('/post/all')
                 this.$store.dispatch('posts', response.data)
+            },
+            async deleteComment(idPost, idComment) {
+                await axios.delete(`/post/${idPost}/comment/${idComment}`)
+                window.location.reload();
+            },
+            modifComment(idComment, idPost) {
+                this.modifCommentId = idComment,
+                this.modifCommentPostId= idPost
             }
         },
         mounted: function() {
@@ -86,7 +110,8 @@
             CreatePost,
             CreateComment,
             ModifPost,
-            LikePost
+            LikePost,
+            ModifComment
         }
     }
 </script>
