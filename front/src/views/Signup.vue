@@ -3,14 +3,14 @@
         <form  @submit.prevent="signup">
             <h2>S'inscrire</h2>
             <label>Email</label>
-            <input required v-model="email" type="text" placeholder="email@email.com"/>
+            <input class="form-control" required v-model="email" type="text" placeholder="email@email.com"/>
             <label>Mot de passe <span class="red">*</span></label>
-            <input required v-model="password" type="password" placeholder="Password"/>
+            <input class="form-control" required v-model="password" type="password" placeholder="Password"/>
             <label>Username <span class="red">*</span></label>
-            <input required v-model="username" type="text" placeholder="toto"/>
+            <input class="form-control" required v-model="username" type="text" placeholder="toto"/>
             <label for="bio">Bio</label>
-            <textarea v-model="bio" type="text" placeholder="Présentez-vous"></textarea>
-            <span >* champ obligatoire</span> <br>
+            <textarea class="form-control" v-model="bio" type="text" placeholder="Présentez-vous"></textarea>
+            <span class="red droite">* champ obligatoire</span> <br>
             <button class="btn btn-primary" type="submit">S'inscrire</button>
         </form>
     </div>
@@ -47,16 +47,31 @@
 
 <style lang="scss">
     #signup {
-
-        width: 70%;
         margin : 10% auto 10% auto;
-
-        form {
-            display: flex;
-            text-align: center;
-            vertical-align: middle;
-            flex-direction: column;
+        width: 70%;
+        text-align: center;
+        vertical-align: middle;
+        border: grey 1px solid ;
+        border-radius: 20px;
+        box-shadow: 10px 10px 30px grey ;
+        padding: 15px;
+        background-color:rgb(33,37,41);
+        color: whitesmoke;
+        button {
+            margin: 10px;
         }
+        label {
+            font-size:  2vw;
+            margin-top: 15px;
+        }
+    }
+
+    .red {
+        color: red ;
+    }
+
+    .droite {
+        float: right;
     }
     
 </style>

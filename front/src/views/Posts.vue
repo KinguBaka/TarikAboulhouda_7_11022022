@@ -1,8 +1,8 @@
 <template>
     <div id="posts">
         <CreatePost />
-        <div v-for="post of posts" :key="post.id" class="postAndComment">
-            <div :id="post.id" class="post">
+        <div v-for="post of posts" :key="post.id" class="card postAndComment">
+            <div :id="post.id" class="onePost">
                 <div v-if="post.UserId === user.id || user.isAdmin == true" class="dropdown">
                     <i class="fas fa-edit edit" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -15,16 +15,16 @@
                         </li>
                     </ul>
                 </div>
-                <h2> {{ post.User.username }} </h2>
+                <h2><i class="far fa-user"></i> {{ post.User.username }} </h2>
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }} </p>
                 <img v-if="post.attachment" :src="post.attachment"/>
-                <p> {{ post.likes }} likes</p>
+                <p> {{ post.likes }} likes </p>
                 <LikePost :postId="post.id" :postUsersLiked="post.usersLiked" :userId="user.id" />
-                <p> {{ format_date(post.createdAt) }} </p>
+                <p class="date"> {{ format_date(post.createdAt) }} </p>
             </div>
             <div v-for="comment of comments" :key="comment.id">
-                <div v-if="comment.PostId === post.id" class="comment">
+                <div v-if="comment.PostId === post.id" class="oneComment">
                     <div class="dropdown" v-if="comment.UserId === user.id || user.isAdmin === true">
                         <i class="fas fa-edit edit" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -117,17 +117,70 @@
 </script>
 
 <style lang="scss">
-    .post {
-        border: solid 1px black;
-        padding: 10px;
-    }
-
-    .comment {
-        border: solid 1px black;
-        padding: 10px;
+    #posts {
+        width: 70%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .postAndComment {
-        margin: 10px;
+        margin: 30px 0 30px 0;
+        padding: 15px 0 15px 0;
+        background: linear-gradient(rgb(54, 54, 54), rgb(80, 79, 79));
+        border-radius: 20px;
+        border: rgb(189, 189, 189) 1px solid
+    }
+
+    .dropdown ul {
+        background-color: rgb(33,37,41);
+        text-align: center;
+    }
+    .dropdown button {
+        width: 80%;
+        margin: 3px;
+    }
+    .onePost {
+        margin: 10px 30px 5px 30px;
+        padding: 10px;
+        border-radius: 50px;
+        background-color:rgb(33,37,41);
+        color: whitesmoke;
+        .edit{
+            margin: 15px;
+            font-size: 2vw;
+            position: absolute;
+            right: 0;
+            color: rgb(119, 119, 119);
+        }
+    }
+    .oneComment .edit{
+        margin: 15px;
+        font-size: 1.5vw;
+        position: absolute;
+        right: 0;
+        color: rgb(119, 119, 119);
+    }
+    .commentUsername {
+        color: #cfa544;
+    }
+    .oneComment {
+        margin: 5px 30px 5px 30px;
+        padding: 10px;
+        border-radius: 50px;
+        background-color:rgb(33,37,41);
+        color: whitesmoke;
+    }
+    .commentContent {
+        
+        padding: 7px;
+        border-radius: 20px;
+        margin: 5px 0 5px 0;
+    }
+    .commentContent p {
+        margin-bottom: 3px;
+    }
+    .date {
+        font-size: 1vw;
     }
 </style>

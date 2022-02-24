@@ -1,7 +1,7 @@
 <template>
     <div id="createComment">
-        <textarea require v-model="content"  placeholder="Ecrivez un commentaire..."></textarea>
-        <button value="Clear" @click.prevent="createComment(idPost)" >Commenter</button>
+        <textarea class="form-control" require v-model="content"  placeholder="Ecrivez un commentaire..."></textarea>
+        <button class="btn btn-primary" @click.prevent="createComment(idPost)" >Commenter</button>
     </div>
 </template>
 
@@ -33,5 +33,8 @@
 </script>
 
 <style>
-
+    #createComment .form-control {
+        margin: 15px auto 10px auto;
+        width: 50%;
+    }
 </style>

@@ -20,24 +20,24 @@
     }
 </script>
 
-<style>
-    .myprofil {
+<style lang="scss">
+    #myprofil {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
     text-align: center;
-    }
-    .myprofil h1 {
-        margin: 35px 0 35px 0;
-        color: #cfa544;
-    }
-    .myprofil h4 {
-        margin: 35px 0 35px 0;
-    }
-    .myprofil .fas {
-        color: rgb(119, 119, 119);
-        font-size: 3vw;
-        margin-right: 0;
-        float: right;
+        h1 {
+            margin: 35px 0 35px 0;
+            color: #cfa544;
+        }
+        h4 {
+            margin: 35px 0 35px 0;
+        }
+        .fas {
+            color: rgb(119, 119, 119);
+            font-size: 3vw;
+            margin-right: 0;
+            float: right;
+        }
     }
 </style>

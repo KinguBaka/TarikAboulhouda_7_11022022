@@ -181,7 +181,7 @@
 </script>
 
 <style>
-        #exit {
+    #exit {
         color: rgb(119, 119, 119);
         font-size: 3vw;
         position: relative;

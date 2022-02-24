@@ -35,5 +35,11 @@
 </script>
 
 <style>
-
+    .like {
+        color: #0D6EFD;
+        font-size: 2vw;
+    }
+    .like:hover {
+        cursor: pointer;
+    }
 </style>

@@ -1,7 +1,6 @@
 <template>
     <div id="logout">
-        <a @click.prevent="logout" href="">Deconnexion</a>
-
+        <a class="nav-link" @click.prevent="logout" href=""><i class="fas fa-sign-out-alt"></i>   Deconnexion</a>
     </div>
 </template>
 

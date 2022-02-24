@@ -2,11 +2,15 @@
   <div id="login">
       <form @submit.prevent="login">
           <h2>se connecter</h2>
-          <label>email</label>
-          <input required v-model="email" type="text">
-          <label  >mot de passe</label>
-          <input required v-model="password" type="password">
-          <button type="submit">se connecter</button>
+          <label>Email</label>
+          <br>
+          <input class="form-control" required v-model="email" type="text">
+          <br>
+          <label>Mot de passe</label>
+          <br>
+          <input class="form-control" required v-model="password" type="password">
+          <br>
+          <button class="btn btn-primary" type="submit">se connecter</button>
       </form>
   </div>
 </template>
@@ -45,16 +49,24 @@
 
 <style lang="scss">
     #login {
-
-        width: 70%;
         margin : 10% auto 10% auto;
-
-        form {
-            display: flex;
-            text-align: center;
-            vertical-align: middle;
-            flex-direction: column;
-        }
+        width: 70%;
+        text-align: center;
+        vertical-align: middle;
+        border: grey 1px solid ;
+        border-radius: 20px;
+        box-shadow: 10px 10px 30px grey ;
+        padding: 15px;
+        background-color:rgb(33,37,41);
+        color: whitesmoke;
+    }
+    #login label {
+        font-size:  2vw;
+        margin-top: 15px;
+    }
+    #login .form-control {
+        margin: 5px auto 10px auto;
+        width: 40%;
     }
     
 </style>

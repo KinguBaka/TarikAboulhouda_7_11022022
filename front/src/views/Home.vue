@@ -1,10 +1,11 @@
 <template>
   <div id="home">
-      <div v-if="!user">
-        <h1>Merci de vous connecter pour profiter du réseaux GROUPOMANIA</h1>
+      <div v-if="!user" id="notLogin">
+        <h1>Bienvenue chez Groupomania</h1>
+        <h4>Vous n'êtes pas connecté !</h4>
+        <p> <strong> Connectez-vous ou créez un compte pour échanger avec vos collégues ! </strong> </p>
       </div>
       <div v-if="user">
-        <h1>Vos messages apparaitrons bientot !</h1>
         <Posts/>
       </div>
   </div>
@@ -26,5 +27,28 @@
 </script>
 
 <style>
-
+      #home {
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+    }
+    #notLogin {
+        text-align: center;
+        height: 100%;
+        padding: 100px;
+        background-image: url("../assets/pexels-sevenstorm-juhaszimrus-443383v2.jpg");
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+    #notLogin h4 {
+        margin: 50px;
+    }
+    html, body{
+        margin :0;
+        padding: 0;
+        height: 100%;
+    }
+    #app {
+        height: 100%;
+    }
 </style>

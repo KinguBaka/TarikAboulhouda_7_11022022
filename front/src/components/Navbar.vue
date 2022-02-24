@@ -1,17 +1,22 @@
 <template>
-  <nav>
-    <div>
-      <h1>GROUPOMANIA</h1>
-    </div>
-    <div class="nav-link">
-      <div v-if="!user">
-        <router-link to="/login"> Login </router-link>
-        <router-link to="/signup"> Signup </router-link>
-      </div>
-      <div v-if="user">
-        <router-link to="/"> Acceuil </router-link>
-        <router-link to="/myprofil"> Mon profil </router-link>
-        <Logout/>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <router-link class="navbar-brand"  to="/">
+        <img src="../assets/icon-left-font-monochrome-white.svg" id="icone" alt="">
+      </router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ml-auto" id="navbarNavAltMarkup">
+        <div v-if="user" class="navbar-nav">
+          <router-link class="nav-link active" aria-current="page" to="/"><i class="fas fa-home"></i>   Acceuil</router-link>
+          <router-link class="nav-link active" to="/myprofil"><i class="fas fa-user"></i>  Mon profil</router-link>
+          <Logout/>
+        </div>
+        <div v-if="!user" class="navbar-nav">
+          <router-link class="nav-link active" aria-current="page" to="/login"><i class="fas fa-sign-in-alt"></i>  Se connecter</router-link>
+          <router-link class="nav-link" to="/signup"><i class="fas fa-user-plus"></i>  S'inscrire</router-link>
+        </div>
       </div>
     </div>
   </nav>
@@ -33,13 +38,15 @@
 </script>
 
 <style lang='scss' >
-  nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  #navbarNavAltMarkup {
+    justify-content: flex-end;
+  }
 
-    .nav-link a {
-      margin: 0 10px 0 10px;
-    }
+  .nav-link {
+    margin: 0px 20px 0px 20px;
+  }
+
+  #icone {
+    width: 200px;
   }
 </style>
