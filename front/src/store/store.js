@@ -5,7 +5,8 @@ export default createStore({
   state: {
     user : null,
     posts : null,
-    comments : null
+    comments : null,
+    idProfil : null
   },
   getters: {
     user: (state) => {
@@ -17,6 +18,9 @@ export default createStore({
     comments: (state) => {
       return state.comments
     },
+    idProfil: (state) => {
+      return state.idProfil
+    },
   },
   mutations: {
     USER(state, user) {
@@ -27,6 +31,9 @@ export default createStore({
     },
     COMMENTS(state, comments) {
       state.comments = comments;
+    },
+    IDPROFIL(state, idProfil) {
+      state.idProfil = idProfil;
     }
   },
   actions: {
@@ -38,6 +45,9 @@ export default createStore({
     },
     comments(context, comments) {
       context.commit('COMMENTS', comments);
+    },
+    idProfil(context, idProfil) {
+      context.commit('IDPROFIL', idProfil);
     }
   },
   modules: {

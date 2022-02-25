@@ -113,15 +113,12 @@ module.exports = {
         var headerAuth = req.headers['authorization'];
         var myId = jwtUtils.getUserId(headerAuth);
 
-        // Params
-        var userId = req.params.id
-
         if (myId < 0) {
             return res.status(400).json({ 'error': 'Mauvais token' });
         }
         models.User.findOne({
-            attributes: ['username', 'id'],
-            where:{id : userId}
+            attributes: ['bio','username'],
+            where:{id : req.params.id}
         }).then(user => {
             if (user) {
             res.status(201).json(user);

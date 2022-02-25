@@ -15,6 +15,7 @@
                 this.$store.dispatch('user', null);
                 this.$store.dispatch('posts', null);
                 this.$store.dispatch('comments', null);
+                this.$store.dispatch('idProfil', null);
                 this.$router.push('/').catch(err => {
                 // Ignore the vuex err regarding  navigating to the page they are already on.
                 if (

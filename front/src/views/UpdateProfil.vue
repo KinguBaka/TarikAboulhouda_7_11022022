@@ -27,7 +27,7 @@
                 </div>
                 <div id="mdp2">
                     <i class="fas fa-times" @click.prevent="modifMdp"></i>
-                    <form @submit.prevent="updateProfil">
+                    <form @submit.prevent="updateProfil()">
                         <label> Nouveau mot de passe : </label> <br>
                         <input class="form-control" v-model="password" type="password" placeholder="Password" autocomplete="off"/>
                         <button class="btn btn-primary" type="submit">Modifier</button>
@@ -41,7 +41,7 @@
                 </div>
                 <div id="username2">
                     <i class="fas fa-times" @click.prevent="modifUsername"></i>
-                    <form @submit.prevent="updateProfil">
+                    <form @submit.prevent="updateProfil()">
                         <label> Nouveau username : </label> <br>
                         <input class="form-control" v-model="username" type="text" :placeholder="user.username"/>
                         <button class="btn btn-primary" type="submit">Modifier</button>
@@ -55,7 +55,7 @@
                 </div>
                 <div id="bio2">
                     <i class="fas fa-times" @click.prevent="modifBio"></i>
-                    <form @submit.prevent="updateProfil">
+                    <form @submit.prevent="updateProfil()">
                         <label> Nouvelle bio : </label> <br>
                         <textarea class="form-control" rows="5" cols="33" v-model="bio" :placeholder="user.bio"></textarea>
                         <button class="btn btn-primary" type="submit">Modifier</button>
@@ -64,7 +64,7 @@
             </li>
         </ul>
 
-        <button type="button" class="btn btn-danger" @click.prevent="deleteProfil">Supprimer son profil</button>
+        <button type="button" class="btn btn-danger" @click.prevent="deleteProfil()">Supprimer son profil</button>
 
     </div>
 
@@ -126,11 +126,12 @@
                         body[newValue] = data[newValue]
                     }
 
-                await axios.put('/users/me',
+                await axios.put('/me',
                    body
                 );
-                this.$router.push('/myprofil');
-                window.location.reload();
+                const response2 = await axios.get('/me')
+                this.$store.dispatch('user', response2.data)
+                this.$router.push('/profilUser');
             },
             modifEmail() {
                 let email1 = document.getElementById("email1");
@@ -176,6 +177,9 @@
                     bio2.style.display = "none";
                 }
             }
+        },
+        mounthed : {
+
         }
     }
 </script>

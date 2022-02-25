@@ -15,7 +15,7 @@
                         </li>
                     </ul>
                 </div>
-                <h2><i class="far fa-user"></i> {{ post.User.username }} </h2>
+                <h2><i class="far fa-user"></i> <router-link to="/profilUser" @click="userProfil(post.UserId)">{{ post.User.username }}</router-link> </h2>
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }} </p>
                 <img v-if="post.attachment" :src="post.attachment"/>
@@ -38,7 +38,7 @@
                         </ul>
                     </div>
                     <div class="commentContent">
-                        <p class="commentUsername"> {{comment.User.username}} </p>
+                        <router-link to='/profilUser' class="commentUsername" @click="userProfil(comment.UserId)"> {{comment.User.username}} </router-link>
                         <p> {{comment.content}} </p>
                         <p class="date"> {{format_date(comment.createdAt)}} </p>
                     </div>
@@ -67,7 +67,8 @@
             return {
                 modifPostId: 0,
                 modifCommentId: 0,
-                modifCommentPostId: 0
+                modifCommentPostId: 0,
+                profilUserId: 0
             }
         },
         computed : {
@@ -95,11 +96,15 @@
             },
             async deleteComment(idPost, idComment) {
                 await axios.delete(`/post/${idPost}/comment/${idComment}`)
-                window.location.reload();
+                const response = await axios.get('/comment')
+                this.$store.dispatch('comments', response.data)
             },
             modifComment(idComment, idPost) {
                 this.modifCommentId = idComment,
                 this.modifCommentPostId= idPost
+            },
+            userProfil(id) {
+                this.$store.dispatch('idProfil', id)
             }
         },
         mounted: function() {
