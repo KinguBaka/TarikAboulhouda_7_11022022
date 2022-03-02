@@ -10,7 +10,7 @@ const routes = [
   { path: '/login', component: Login},
   { path: '/signup', component: Signup},
   { path: '/updateprofil', component: UpdateProfil},
-  { path: '/profilUser', component: ProfilUser }
+  { path: '/profilUser/:id', component: ProfilUser }
 
 ]
 

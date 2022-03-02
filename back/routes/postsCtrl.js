@@ -103,11 +103,10 @@ module.exports = {
             where: { id: idCurrentUser }
         })
         .then(userFound =>{
-            
             if(userFound) {
                 models.Post.findAll({
                     where: {userId : req.params.id },
-                    order : [(order !=null) ? order.split(':') : ['title', 'ASC']],
+                    order : [(order !=null) ? order.split(':') : ['createdAt', 'DESC']],
                     attributes: (fields !== '*' && fields != null) ? fields.split(',') : null,
                     limit: (!isNaN(limit)) ? limit: null,
                     offset: (!isNaN(offset)) ? offset : null,

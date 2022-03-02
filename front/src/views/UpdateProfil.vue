@@ -1,6 +1,6 @@
 <template>
     <div id="update">
-        <router-link id="exit" to="/myprofil">
+        <router-link id="exit" :to="`/profilUser/${this.user.id}`">
             <i class="fas fa-times" ></i>
         </router-link>
         <ul class="list-group list-group-flush">
@@ -177,9 +177,6 @@
                     bio2.style.display = "none";
                 }
             }
-        },
-        mounthed : {
-
         }
     }
 </script>

@@ -117,7 +117,7 @@ module.exports = {
             return res.status(400).json({ 'error': 'Mauvais token' });
         }
         models.User.findOne({
-            attributes: ['bio','username'],
+            attributes: ['bio','username', 'id'],
             where:{id : req.params.id}
         }).then(user => {
             if (user) {

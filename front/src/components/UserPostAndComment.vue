@@ -1,6 +1,5 @@
 <template>
-    <div id="posts">
-        <CreatePost />
+    <div id="userPostAndComment">
         <div v-for="post of posts" :key="post.id" class="card postAndComment">
             <div :id="post.id" class="onePost">
                 <div v-if="post.UserId === user.id || user.isAdmin == true" class="dropdown">
@@ -55,14 +54,13 @@
     import axios from 'axios'
     import {mapGetters} from 'vuex'
     import format_date from '../moment/moment'
-    import CreatePost from '../components/CreatePost.vue'
-    import CreateComment from '../components/CreateComment.vue'
-    import ModifPost from '../components/ModifPost.vue'
-    import LikePost from '../components/LikePost.vue'
-    import ModifComment from '../components/ModifComment.vue'
+    import CreateComment from './CreateComment.vue'
+    import ModifPost from './ModifPost.vue'
+    import LikePost from './LikePost.vue'
+    import ModifComment from './ModifComment.vue'
 
     export default {
-        name: 'Posts',
+        name: 'UserPostAndComment',
         data() {
             return {
                 modifPostId: 0,
@@ -78,8 +76,8 @@
         },
         methods: {
             format_date,
-            async listPosts() {
-                const response = await axios.get('/post/all')
+            async listUserPosts(id) {
+                const response = await axios.get(`/user/${id}/post`)
                 this.$store.dispatch('posts', response.data)
             },
             async listComment() {
@@ -91,7 +89,7 @@
             },
             async deletePost(id) {
                 await axios.delete('/post/'+ id)
-                const response = await axios.get('/post/all')
+                const response = await axios.get(`/user/${this.idProfil}/post`)
                 this.$store.dispatch('posts', response.data)
             },
             async deleteComment(idPost, idComment) {
@@ -105,14 +103,14 @@
             },
             userProfil(id) {
                 this.$store.dispatch('idProfil', id)
+                this.$forceUpdate()
             }
         },
         mounted: function() {
-            this.listPosts(),
+            this.listUserPosts(this.idProfil),
             this.listComment()
         },
         components : {
-            CreatePost,
             CreateComment,
             ModifPost,
             LikePost,
@@ -121,71 +119,6 @@
     }
 </script>
 
-<style lang="scss">
-    #posts {
-        width: 70%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
+<style>
 
-    .postAndComment {
-        margin: 30px 0 30px 0;
-        padding: 15px 0 15px 0;
-        background: linear-gradient(rgb(54, 54, 54), rgb(80, 79, 79));
-        border-radius: 20px;
-        border: rgb(189, 189, 189) 1px solid
-    }
-
-    .dropdown ul {
-        background-color: rgb(33,37,41);
-        text-align: center;
-    }
-    .dropdown button {
-        width: 80%;
-        margin: 3px;
-    }
-    .onePost {
-        margin: 10px 30px 5px 30px;
-        padding: 10px;
-        border-radius: 50px;
-        background-color:rgb(33,37,41);
-        color: whitesmoke;
-        .edit{
-            margin: 15px;
-            font-size: 2vw;
-            position: absolute;
-            right: 0;
-            color: rgb(119, 119, 119);
-        }
-    }
-    .oneComment .edit{
-        margin: 15px;
-        font-size: 1.5vw;
-        position: absolute;
-        right: 0;
-        color: rgb(119, 119, 119);
-    }
-    .commentUsername {
-        color: #cfa544;
-    }
-    .oneComment {
-        margin: 5px 30px 5px 30px;
-        padding: 10px;
-        border-radius: 50px;
-        background-color:rgb(33,37,41);
-        color: whitesmoke;
-    }
-    .commentContent {
-        
-        padding: 7px;
-        border-radius: 20px;
-        margin: 5px 0 5px 0;
-    }
-    .commentContent p {
-        margin-bottom: 3px;
-    }
-    .date {
-        font-size: 1vw;
-    }
 </style>

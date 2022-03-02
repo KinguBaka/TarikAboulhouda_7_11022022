@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse ml-auto" id="navbarNavAltMarkup">
         <div v-if="user" class="navbar-nav">
           <router-link class="nav-link active" aria-current="page" to="/"><i class="fas fa-home"></i>   Acceuil</router-link>
-          <router-link class="nav-link active" @click.prevent="deleteIdProfil()" to="/profilUser"><i class="fas fa-user"></i>  Mon profil</router-link>
+          <router-link class="nav-link active" @click.prevent="majIdProfil()" :to="`/profilUser/${this.user.id}`"><i class="fas fa-user"></i>  Mon profil</router-link>
           <Logout/>
         </div>
         <div v-if="!user" class="navbar-nav">
@@ -35,8 +35,8 @@
     ...mapGetters(['user'])
     },
     methods: {
-      deleteIdProfil() {
-        this.$store.dispatch('idProfil', null);
+      majIdProfil() {
+        this.$store.dispatch('idProfil', this.user.id);
       }
     }
   }
