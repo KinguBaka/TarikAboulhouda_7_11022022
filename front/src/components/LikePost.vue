@@ -1,12 +1,13 @@
 <template>
     <div id="LikePost">
-        <i class="like fas fa-thumbs-down" v-if="postUsersLiked.includes(userId)" @click.prevent="dislikePost(postId)"></i>
-        <i class="like fas fa-thumbs-up" v-else @click.prevent="likePost(postId)"></i>
+        <i class="like fas fa-thumbs-down" v-if="postUsersLiked.includes(userId)" @click.prevent="dislikePost(postId, this.idProfil)"></i>
+        <i class="like fas fa-thumbs-up" v-else @click.prevent="likePost(postId, this.idProfil)"></i>
     </div>
 </template>
 
 <script>
     import axios from 'axios'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'LikePost',
@@ -15,20 +16,35 @@
             userId: Number,
             postId: Number
         },
+         computed : {
+            ...mapGetters(['idProfil'])
+        },
         methods: {
-            async dislikePost(postId) {
+            async dislikePost(postId, id) {
                 await axios.put(`/post/${postId}/like`,{
                     like: 0
                 })
-                const response = await axios.get('/post/all')
-                this.$store.dispatch('posts', response.data)
+                let url = window.location.href;
+                if (url.includes('/profilUser')) {
+                    const response = await axios.get(`/user/${id}/post`)
+                    this.$store.dispatch('posts', response.data)
+                } else {
+                    const response = await axios.get('/post/all')
+                    this.$store.dispatch('posts', response.data)
+                }
             },
-            async likePost(postId) {
+            async likePost(postId, id) {
                 await axios.put(`/post/${postId}/like`,{
                     like: 1
                 })
-                const response = await axios.get('/post/all')
-                this.$store.dispatch('posts', response.data)
+                let url = window.location.href;
+                if (url.includes('/profilUser')) {
+                    const response = await axios.get(`/user/${id}/post`)
+                    this.$store.dispatch('posts', response.data)
+                } else {
+                    const response = await axios.get('/post/all')
+                    this.$store.dispatch('posts', response.data)
+                }
             }
         }
     }
