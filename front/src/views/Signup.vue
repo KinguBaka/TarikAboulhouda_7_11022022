@@ -31,15 +31,21 @@
         },
         methods : {
             async signup(){
-
                 await axios.post('/signup',
                 {
                     email: this.email,
                     username: this.username,
                     password: this.password,
                     bio: this.bio
-                });
-                this.$router.push('/login');
+                })
+                .catch((error) => {
+                    window.alert(error.response.data.error);
+                })
+                .then((error) => {
+                    if (error) {
+                        this.$router.push('/login')
+                    }
+                })
             }
         }
     }

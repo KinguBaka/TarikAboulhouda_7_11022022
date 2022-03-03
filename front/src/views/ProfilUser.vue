@@ -22,7 +22,7 @@
     import UserPostAndComment from '../components/UserPostAndComment.vue'
 
     export default {
-        name: 'PorfilUser',
+        name: 'ProfilUser',
         data() {
             return {
                 userUsername: "",

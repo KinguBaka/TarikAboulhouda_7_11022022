@@ -30,6 +30,11 @@
                 await axios.post('/post/publish', body)
                 const response = await axios.get('/post/all')
                 this.$store.dispatch('posts', response.data)
+
+                this.title = '';
+                this.content = '';
+                this.attachment = '';
+                document.getElementById("file").value = '';
             },
             handleFileUpload() {
                 this.attachment = this.$refs.file.files[0];

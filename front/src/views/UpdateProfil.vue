@@ -131,7 +131,7 @@
                 );
                 const response2 = await axios.get('/me')
                 this.$store.dispatch('user', response2.data)
-                this.$router.push('/profilUser');
+                this.$router.push(`/profilUser/${this.user.id}`);
             },
             modifEmail() {
                 let email1 = document.getElementById("email1");

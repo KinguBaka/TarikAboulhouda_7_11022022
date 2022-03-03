@@ -194,7 +194,7 @@ module.exports = {
         
         models.Post.findOne({where : {id : req.params.id }})
         .then(post => {
-            if (idCurrentUser === post.userId || userIsAdmin === true ) {
+            if (idCurrentUser === post.UserId || userIsAdmin === true ) {
                 if (post.attachment) {
                     const filename = post.attachment.split("/images/")[1];
                     fs.unlink(`./public/images/${filename}`, () => {

@@ -27,6 +27,7 @@
                 })
                 const response = await axios.get('/comment')
                 this.$store.dispatch('comments', response.data)
+                this.content = ''
             }
         }
     }

@@ -35,12 +35,22 @@
                 })
                 .then((response) => {
                     localStorage.setItem('token', response.data.token)
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+                    console.log(localStorage.getItem('token'));
                     console.log("vous etes connecté !");
                 })
-                .then( async () => {
-                    const response2 = await axios.get('/me')
-                    this.$store.dispatch('user', response2.data)
+                .then( () => {
+                    this.getUserProfil()
                     this.$router.push('/');
+                })
+                .catch((error) => {
+                    window.alert(error.response.data.error);
+                })
+            }, 
+            async getUserProfil() {
+                await axios.get('/me')
+                .then((response) =>{
+                    this.$store.dispatch('user', response.data)
                 })
             }
         }
