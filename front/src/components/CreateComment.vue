@@ -1,6 +1,7 @@
 <template>
     <div id="createComment">
         <textarea class="form-control" require v-model="content"  placeholder="Ecrivez un commentaire..."></textarea>
+        <p class="warningMessage" v-if="this.errors.content"> {{errors.content.msg}}</p>       
         <button class="btn btn-primary" @click.prevent="createComment(idPost)" >Commenter</button>
     </div>
 </template>
@@ -12,7 +13,8 @@
         name: 'CreateComment',
         data() {
             return {
-                content: ''
+                content: '',
+                errors: ''
             }
         },
         props: {
@@ -25,9 +27,19 @@
                 await axios.post(`/post/${idPost}/comment/publish`, {
                     content
                 })
+                .catch((error) => {
+                    if (error.response.data.errors) {
+                        this.errors = error.response.data.errors
+                    }     
+                })
+                .then((error) => { 
+                    if (error) {
+                        this.content = '';
+                        this.errors = '';
+                    }
+                })
                 const response = await axios.get('/comment')
                 this.$store.dispatch('comments', response.data)
-                this.content = ''
             }
         }
     }

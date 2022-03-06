@@ -15,6 +15,7 @@
                     <form @submit.prevent="updateProfil">
                         <label> Nouvelle adresse email : </label> <br>
                         <input class="form-control" v-model="email" type="text" :placeholder="user.email" autocomplete="off"/>
+                         <p class="warningMessage" v-if="this.errors.email"> {{errors.email.msg}}</p>
                         <button class="btn btn-primary" type="submit">Modifier</button>
                     </form>
                     
@@ -30,6 +31,7 @@
                     <form @submit.prevent="updateProfil()">
                         <label> Nouveau mot de passe : </label> <br>
                         <input class="form-control" v-model="password" type="password" placeholder="Password" autocomplete="off"/>
+                        <p class="warningMessage" v-if="this.errors.password"> {{errors.password.msg}}</p>
                         <button class="btn btn-primary" type="submit">Modifier</button>
                     </form>
                 </div>
@@ -44,6 +46,7 @@
                     <form @submit.prevent="updateProfil()">
                         <label> Nouveau username : </label> <br>
                         <input class="form-control" v-model="username" type="text" :placeholder="user.username"/>
+                        <p class="warningMessage" v-if="this.errors.username"> {{errors.username.msg}}</p>
                         <button class="btn btn-primary" type="submit">Modifier</button>
                     </form>
                 </div>
@@ -81,7 +84,8 @@
                 email: null,
                 password: null,
                 username: null,
-                bio: null
+                bio: null,
+                errors: ''
             }
         },
         computed: {
@@ -128,10 +132,19 @@
 
                 await axios.put('/me',
                    body
-                );
+                )
+                .catch((error) => {
+                    if (error.response.data.errors) {
+                        this.errors = error.response.data.errors
+                    }     
+                })
+                .then((error) => {
+                    if (error) {
+                        this.$router.push(`/profilUser/${this.user.id}`);
+                    }
+                })
                 const response2 = await axios.get('/me')
                 this.$store.dispatch('user', response2.data)
-                this.$router.push(`/profilUser/${this.user.id}`);
             },
             modifEmail() {
                 let email1 = document.getElementById("email1");
