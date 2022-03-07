@@ -14,7 +14,7 @@
                         </li>
                     </ul>
                 </div>
-                <h2><i class="far fa-user"></i> <router-link :to="`/profilUser/${post.UserId}`" @click="userProfil(post.UserId)">{{ post.User.username }}</router-link> </h2>
+                <h2><i class="far fa-user"></i> <router-link class="username" :to="`/profilUser/${post.UserId}`" @click="userProfil(post.UserId)">{{ post.User.username }}</router-link> </h2>
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }} </p>
                 <img v-if="post.attachment" :src="post.attachment"/>
@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                     <div class="commentContent">
-                        <router-link :to="`/profilUser/${comment.UserId}`" class="commentUsername" @click="userProfil(comment.UserId)"> {{comment.User.username}} </router-link>
+                        <router-link :to="`/profilUser/${comment.UserId}`" class="username" @click="userProfil(comment.UserId)"> {{comment.User.username}} </router-link>
                         <p> {{comment.content}} </p>
                         <p class="date"> {{format_date(comment.createdAt)}} </p>
                     </div>
@@ -119,6 +119,81 @@
     }
 </script>
 
-<style>
+<style lang="scss">
 
+    #userPostAndComment {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+
+        a {
+            text-decoration: none;
+        }
+
+        .postAndComment {
+            margin: 30px 0 30px 0;
+            padding: 15px 0 15px 0;
+            box-shadow: 0px 0px 23px 8px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            background-color:#FFFF;
+            color: black;
+
+            .username {
+                color: #1b5ad4;
+            }
+        }
+
+        .dropdown {
+            ul {
+                background-color: #f7f7f8;
+                text-align: center;
+            }
+            button {
+                margin: 3px;
+            }
+        }
+
+        .onePost {
+            padding: 10px;
+            border-radius: 50px;
+
+            .edit{
+                margin: 15px;
+                font-size: 2vw;
+                position: absolute;
+                right: 0;
+                color: #1b5ad4;
+            }
+        }
+
+        .oneComment {
+        margin: 5px 30px 5px 30px;
+        padding: 10px;
+        border-radius: 50px;
+        background-color:#f7f7f8;
+        border:  solid #e7e7e7 1px;
+
+            .edit{
+                margin: 15px;
+                font-size: 1.5vw;
+                position: absolute;
+                right: 0;
+                color: #1b5ad4;
+            }
+        }
+
+        .commentContent {
+            padding: 7px;
+            border-radius: 20px;
+            margin: 5px 0 5px 0;
+
+            p {
+                margin-bottom: 3px;
+            }
+        }
+
+        .date {
+            font-size: 1vw;
+        }
+    }
 </style>

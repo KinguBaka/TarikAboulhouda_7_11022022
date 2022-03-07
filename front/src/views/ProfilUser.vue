@@ -55,20 +55,21 @@
 </script>
 
 <style lang="scss" scoped>
+
     #profilUser {
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 80%;
     text-align: center;
         h1 {
             margin: 35px 0 35px 0;
-            color: #cfa544;
+            color: #1b5ad4;
         }
         h4 {
             margin: 35px 0 35px 0;
         }
         .fas {
-            color: rgb(119, 119, 119);
+            color: #1b5ad4;
             font-size: 3vw;
             margin-right: 0;
             float: right;

@@ -57,18 +57,20 @@
 
 <style lang="scss">
     #createPost {
+        text-align: center;
+        vertical-align: middle;
         margin: 40px 0 40px 0;
-        padding: 15px 0 15px 0;
-        background-color:rgb(33,37,41);
+        padding: 25px;
+        background-color:#FFFF;
         border-radius: 20px;
-        border: rgb(189, 189, 189) 1px solid ;
-        color: whitesmoke;
+        box-shadow: 0px 0px 23px 8px rgba(0,0,0,0.15);
+        color: black;
         h2 {
             margin: 15px 0 30px 0;
         }
         .form-control {
             margin: 5px auto 10px auto;
-            width: 40%;
+            max-width: 500px;
         }
     }
 </style>

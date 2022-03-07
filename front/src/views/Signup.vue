@@ -61,36 +61,39 @@
 </script>
 
 <style lang="scss">
+
     #signup {
-        margin : 10% auto 10% auto;
-        width: 70%;
+        margin : 10% ;
         text-align: center;
         vertical-align: middle;
-        border: grey 1px solid ;
         border-radius: 20px;
-        box-shadow: 10px 10px 30px grey ;
+        box-shadow: 0px 0px 23px 8px rgba(0,0,0,0.15);
         padding: 15px;
-        background-color:rgb(33,37,41);
-        color: whitesmoke;
-        button {
-            margin: 10px;
-        }
+        background-color:#FFFF;
+        color: black;
+
         label {
-            font-size:  2vw;
+            font-size:  3vw;
             margin-top: 15px;
         }
+
+        .form-control {
+            margin: 5px auto 10px auto;
+            max-width: 500px;
+        }
+
+        .droite {
+            float: right;
+        }
+
+        .red {
+            color: red ;
+        }
+
+        .warningMessage {
+            color: red ;
+        }
     }
 
-    .red {
-        color: red ;
-    }
-
-   .warningMessage {
-       color: red ;
-   }
-
-    .droite {
-        float: right;
-    }
     
 </style>

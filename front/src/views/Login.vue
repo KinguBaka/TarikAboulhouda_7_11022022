@@ -1,7 +1,7 @@
 <template>
   <div id="login">
       <form @submit.prevent="login">
-          <h2>se connecter</h2>
+          <h2>Se connecter</h2>
           <label>Email</label>
           <br>
           <input class="form-control" required v-model="email" type="text">
@@ -58,25 +58,27 @@
 </script>
 
 <style lang="scss">
+
     #login {
-        margin : 10% auto 10% auto;
-        width: 70%;
+        margin : 10% ;
         text-align: center;
         vertical-align: middle;
-        border: grey 1px solid ;
         border-radius: 20px;
-        box-shadow: 10px 10px 30px grey ;
+        box-shadow: 0px 0px 23px 8px rgba(0,0,0,0.15);
         padding: 15px;
-        background-color:rgb(33,37,41);
-        color: whitesmoke;
-    }
-    #login label {
-        font-size:  2vw;
-        margin-top: 15px;
-    }
-    #login .form-control {
-        margin: 5px auto 10px auto;
-        width: 40%;
+        background-color:#FFFF;
+        color: black;
+
+        label {
+            font-size:  3vw;
+            margin-top: 15px;
+        }
+
+        .form-control {
+            margin: 5px auto 10px auto;
+            max-width: 500px;
+        }
+
     }
     
 </style>

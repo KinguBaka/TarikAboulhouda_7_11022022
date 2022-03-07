@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <router-link class="navbar-brand"  to="/">
-        <img src="../assets/icon-left-font-monochrome-white.svg" id="icone" alt="">
+        <img src="../assets/icon-left-font-monochrome-black.svg" id="icone" alt="">
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
         </div>
         <div v-if="!user" class="navbar-nav">
           <router-link class="nav-link active" aria-current="page" to="/login"><i class="fas fa-sign-in-alt"></i>  Se connecter</router-link>
-          <router-link class="nav-link" to="/signup"><i class="fas fa-user-plus"></i>  S'inscrire</router-link>
+          <router-link class="nav-link " to="/signup"><i class="fas fa-user-plus"></i>  S'inscrire</router-link>
         </div>
       </div>
     </div>
@@ -43,6 +43,12 @@
 </script>
 
 <style lang='scss' >
+
+  .navbar {
+    background-color: #FFFF;
+    box-shadow: 0px 6px 26px -3px rgba(0,0,0,0.20);
+  }
+
   #navbarNavAltMarkup {
     justify-content: flex-end;
   }

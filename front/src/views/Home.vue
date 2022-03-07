@@ -26,29 +26,50 @@
     }
 </script>
 
-<style>
-      #home {
-        margin-left: auto;
-        margin-right: auto;
-        height: 100%;
+<style lang="scss">
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  h4 {
+    font-size: 3vw;
+  }
+
+  p {
+    font-size: 2vw;
+  }
+
+  button {
+    width: 120px;
+  }
+
+  html, body{
+    margin :0;
+    padding: 0;
+    height: 100%;
+  }
+
+  #app {
+    height: 100%;
+  }
+
+  #home {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+  }
+  
+  #notLogin {
+    text-align: center;
+    height: 100%;
+    padding: 20vh 5vw;
+    background-image: url("../assets/pexels-sevenstorm-juhaszimrus-443383v2.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+
+    h4 {
+      margin: 50px;
     }
-    #notLogin {
-        text-align: center;
-        height: 100%;
-        padding: 100px;
-        background-image: url("../assets/pexels-sevenstorm-juhaszimrus-443383v2.jpg");
-        background-repeat:no-repeat;
-        background-size: cover;
-    }
-    #notLogin h4 {
-        margin: 50px;
-    }
-    html, body{
-        margin :0;
-        padding: 0;
-        height: 100%;
-    }
-    #app {
-        height: 100%;
-    }
+  }
 </style>

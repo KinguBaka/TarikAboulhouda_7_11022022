@@ -194,57 +194,65 @@
     }
 </script>
 
-<style>
-    #exit {
-        color: rgb(119, 119, 119);
-        font-size: 3vw;
-        position: relative;
-        margin-right: -120% ;
-        text-decoration: none;
-    }
+<style lang="scss">
+
     #update {
-        width: 70%;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-    }
-    #update label {
-        font-size: 2vw;
-    }
-    #update ul i {
-        color: rgb(119, 119, 119);
-        font-size: 1.5vw;
-        float: right;
-    }
-    #update i:hover {
-        cursor: pointer;
-    }
-    #update li {
-        padding: 20px 30px 20px 30px;
-        color: whitesmoke;
-        background-color:rgb(33,37,41);
-    }
-    #update ul {
-        margin: 50px 0 50px 0;
-        background-color:rgb(33,37,41);
-        border-radius: 50px;
-    }
-    #update form .form-control {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        width: 60%;
-    }
-    #email2 {
-        display: none
-    }
-    #mdp2 {
-        display: none
-    }
-    #username2 {
-        display: none
-    }
-    #bio2 {
-        display: none
+
+        label {
+            font-size: 2vw;
+        }
+
+        ul {
+            margin: 50px 0 50px 0;
+            border-radius: 50px;
+            i {
+                color: #1b5ad4;
+                font-size: 1.5vw;
+                float: right;
+
+            }
+        }
+
+        i:hover {
+            cursor: pointer;
+        }
+
+        li {
+            padding: 20px 30px 20px 30px;
+            background-color:#FFFF;
+            color: black;
+        }
+
+        #exit {
+           color: #1b5ad4;
+            font-size: 3vw;
+            position: relative;
+            margin-right: -110% ;
+            text-decoration: none;
+        }
+
+        form .form-control {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 500px;
+        }
+
+        #email2 {
+            display: none
+        }
+        #mdp2 {
+            display: none
+        }
+        #username2 {
+            display: none
+        }
+        #bio2 {
+            display: none
+        }
     }
 </style>

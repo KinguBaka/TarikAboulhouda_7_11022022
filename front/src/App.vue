@@ -18,10 +18,10 @@
 
 <style>
   html {
-    background-color: rgb(209, 209, 209);
+    background-color: #f7f7f8;
   }
   #app {
-    background-color: rgb(209, 209, 209);
+    background-color: #f7f7f8;
     height: 100%;
   }
   #app2{

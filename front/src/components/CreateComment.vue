@@ -45,9 +45,13 @@
     }
 </script>
 
-<style>
-    #createComment .form-control {
-        margin: 15px auto 10px auto;
-        width: 50%;
+<style lang="scss">
+    #createComment {
+        padding: 15px;
+
+        .form-control {
+            margin: 15px auto 10px auto;
+            max-width: 500px;
+        }
     }
 </style>
