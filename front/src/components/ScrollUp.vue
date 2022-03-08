@@ -24,7 +24,7 @@
 
     scroll-to-top-wc::part(container) {
         color: #1b5ad4;
-        border-radius: 40%;
+        border-radius: 50px;
         border: 1px solid grey;
     }
 
