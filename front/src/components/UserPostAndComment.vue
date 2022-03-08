@@ -14,7 +14,7 @@
                         </li>
                     </ul>
                 </div>
-                <h2><i class="far fa-user"></i> <router-link class="username" :to="`/profilUser/${post.UserId}`" @click="userProfil(post.UserId)">{{ post.User.username }}</router-link> </h2>
+                <h2> <router-link class="username" :to="`/profilUser/${post.UserId}`" @click="userProfil(post.UserId)"><i class="far fa-user"></i> {{ post.User.username }}</router-link> </h2>
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }} </p>
                 <img v-if="post.attachment" :src="post.attachment"/>
@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                     <div class="commentContent">
-                        <router-link :to="`/profilUser/${comment.UserId}`" class="username" @click="userProfil(comment.UserId)"> {{comment.User.username}} </router-link>
+                        <router-link :to="`/profilUser/${comment.UserId}`" class="username" @click="userProfil(comment.UserId)"><i class="far fa-user"></i> {{comment.User.username}} </router-link>
                         <p> {{comment.content}} </p>
                         <p class="date"> {{format_date(comment.createdAt)}} </p>
                     </div>
@@ -58,6 +58,7 @@
     import ModifPost from './ModifPost.vue'
     import LikePost from './LikePost.vue'
     import ModifComment from './ModifComment.vue'
+
 
     export default {
         name: 'UserPostAndComment',

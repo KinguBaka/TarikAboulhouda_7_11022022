@@ -2,16 +2,19 @@
   <div id="app">
     <Navbar/>
     <router-view/>
+    <ScrollUp />
   </div>
 </template>
 
 <script>
   import Navbar from './components/Navbar.vue'
+  import ScrollUp from './components/ScrollUp.vue'
 
   export default {
     name: 'App',
     components: {
       Navbar,
+      ScrollUp
     }
   }
 </script>
