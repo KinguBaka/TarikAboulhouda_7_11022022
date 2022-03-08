@@ -52,7 +52,7 @@
 
 <style>
     .like {
-        color: #0D6EFD;
+        color: #1b5ad4;
         font-size: 2vw;
     }
     .like:hover {

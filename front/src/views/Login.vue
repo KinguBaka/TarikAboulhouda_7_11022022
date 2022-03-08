@@ -36,8 +36,6 @@
                 .then((response) => {
                     localStorage.setItem('token', response.data.token)
                     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-                    console.log(localStorage.getItem('token'));
-                    console.log("vous etes connecté !");
                 })
                 .then( () => {
                     this.getUserProfil()

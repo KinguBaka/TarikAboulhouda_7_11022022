@@ -46,7 +46,6 @@
                     if (error.response.data.error) {
                         window.alert(error.response.data.error);
                     } else if (error.response.data.errors) {
-                        console.log(error.response.data.errors);
                         this.errors = error.response.data.errors
                     }     
                 })
