@@ -61,6 +61,7 @@
                     <form @submit.prevent="updateProfil()">
                         <label> Nouvelle bio : </label> <br>
                         <textarea class="form-control" rows="5" cols="33" v-model="bio" :placeholder="user.bio"></textarea>
+                        <p class="warningMessage" v-if="this.errors.bio"> {{errors.bio.msg}}</p>
                         <button class="btn btn-primary" type="submit">Modifier</button>
                     </form>
                 </div>

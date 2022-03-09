@@ -13,6 +13,7 @@
             <p class="warningMessage" v-if="this.errors.username"> {{errors.username.msg}}</p>
             <label for="bio">Bio</label>
             <textarea class="form-control" v-model="bio" type="text" placeholder="Présentez-vous"></textarea>
+            <p class="warningMessage" v-if="this.errors.bio"> {{errors.bio.msg}}</p>
             <span class="red droite">* champ obligatoire</span> <br>
             <button class="btn btn-primary" type="submit">S'inscrire</button>
         </form>
@@ -86,10 +87,6 @@
         }
 
         .red {
-            color: red ;
-        }
-
-        .warningMessage {
             color: red ;
         }
     }
