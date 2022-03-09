@@ -7,7 +7,7 @@
             <li class="list-group-item">
                 <div id="email1">
                     <i class="fas fa-edit" @click.prevent="modifEmail"></i>
-                    <h4>Adresse email : <br> {{user.email}} </h4>
+                    <h2>Adresse email : <br> {{user.email}} </h2>
                 
                 </div>
                 <div id="email2">
@@ -24,7 +24,7 @@
             <li class="list-group-item">
                 <div id="mdp1">
                     <i class="fas fa-edit" @click.prevent="modifMdp"></i>
-                   <h4> Mot de passe </h4>
+                   <h2> Mot de passe </h2>
                 </div>
                 <div id="mdp2">
                     <i class="fas fa-times" @click.prevent="modifMdp"></i>
@@ -39,7 +39,7 @@
             <li class="list-group-item">
                 <div id="username1">
                     <i class="fas fa-edit" @click.prevent="modifUsername"></i>
-                    <h4>Username : <br> {{user.username}} </h4>
+                    <h2>Username : <br> {{user.username}} </h2>
                 </div>
                 <div id="username2">
                     <i class="fas fa-times" @click.prevent="modifUsername"></i>
@@ -54,7 +54,7 @@
             <li class="list-group-item">
                 <div id="bio1">
                     <i class="fas fa-edit" @click.prevent="modifBio"></i>
-                    <h4>Bio : <br> {{user.bio}} </h4>
+                    <h2>Bio : <br> {{user.bio}} </h2>
                 </div>
                 <div id="bio2">
                     <i class="fas fa-times" @click.prevent="modifBio"></i>
@@ -207,7 +207,8 @@
         text-align: center;
 
         label {
-            font-size: 2vw;
+            font-size: 20px;
+
         }
 
         ul {
@@ -215,7 +216,7 @@
             border-radius: 50px;
             i {
                 color: #1b5ad4;
-                font-size: 1.5vw;
+                font-size: 15px;
                 float: right;
 
             }
@@ -233,7 +234,7 @@
 
         #exit {
            color: #1b5ad4;
-            font-size: 3vw;
+            font-size: 20px;
             position: relative;
             margin-right: -110% ;
             text-decoration: none;

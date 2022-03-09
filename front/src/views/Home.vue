@@ -2,8 +2,10 @@
   <div id="home">
       <div v-if="!user" id="notLogin">
         <h1>Bienvenue chez Groupomania</h1>
-        <h4>Vous n'êtes pas connecté !</h4>
-        <p> <strong> Connectez-vous ou créez un compte pour échanger avec vos collégues ! </strong> </p>
+        <div id="notLoginText">
+          <h2>Vous n'êtes pas connecté !</h2>
+          <p> <strong> Connectez-vous ou créez un compte pour échanger avec vos collégues ! </strong> </p>
+        </div>
       </div>
       <div v-if="user">
         <Posts/>
@@ -28,36 +30,6 @@
 
 <style lang="scss">
 
-  h1 {
-    font-size: 5vw;
-  }
-
-  h4 {
-    font-size: 3vw;
-  }
-
-  p {
-    font-size: 2vw;
-  }
-
-  button {
-    width: 120px;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  html, body{
-    margin :0;
-    padding: 0;
-    height: 100%;
-  }
-
-  #app {
-    height: 100%;
-  }
-
   #home {
     margin-left: auto;
     margin-right: auto;
@@ -74,6 +46,11 @@
 
     h4 {
       margin: 50px;
+    }
+
+    #notLoginText {
+      margin-top: 100px;
+      margin-bottom: 100px;
     }
   }
 </style>

@@ -68,7 +68,7 @@
         color: black;
 
         label {
-            font-size:  3vw;
+            font-size:  20px;
             margin-top: 15px;
         }
 

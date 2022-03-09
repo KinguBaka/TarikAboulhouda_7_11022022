@@ -15,12 +15,14 @@
                     </ul>
                 </div>
                 <h2> <router-link class="username" :to="`/profilUser/${post.UserId}`" @click="userProfil(post.UserId)"><i class="far fa-user"></i> {{ post.User.username }}</router-link> </h2>
+                <p class="date"> {{ format_date(post.createdAt) }} </p>
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }} </p>
                 <img v-if="post.attachment" :src="post.attachment"/>
-                <p> {{ post.likes }} likes </p>
-                <LikePost :postId="post.id" :postUsersLiked="post.usersLiked" :userId="user.id" />
-                <p class="date"> {{ format_date(post.createdAt) }} </p>
+                <div class="postLike">
+                    <p> {{ post.likes }} likes </p>
+                    <LikePost :postId="post.id" :postUsersLiked="post.usersLiked" :userId="user.id" />
+                </div>
             </div>
             <div v-for="comment of comments" :key="comment.id">
                 <div v-if="comment.PostId === post.id" class="oneComment">
@@ -194,7 +196,17 @@
         }
 
         .date {
-            font-size: 1vw;
+            font-size: .8000rem;
+        }
+
+        .postLike {
+            display: flex;
+            flex-direction: column;
+            margin: 1vh 0 1vh 0;
+
+            * {
+                margin: 0.3vh;
+            }
         }
     }
 </style>

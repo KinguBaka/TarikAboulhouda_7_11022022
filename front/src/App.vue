@@ -27,15 +27,34 @@
     background-color: #f7f7f8;
     height: 100%;
   }
-  #app2{
+
+  h1{
+    font-size: 5vw;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: .9375rem;
+  }
+
+  button {
+    width: 120px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  html, body{
     margin :0;
     padding: 0;
     height: 100%;
-  }
-  h1 {
-    font-size: 5vw;
-  }
-  h4 {
-    font-size: 2vw;
   }
 </style>

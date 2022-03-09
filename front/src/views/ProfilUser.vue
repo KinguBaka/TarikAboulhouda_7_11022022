@@ -5,12 +5,12 @@
                 <i class="fas fa-cog"></i>
             </router-link>       
             <h1><i class="far fa-user"></i> {{user.username}} </h1>
-            <h4> {{user.bio}} </h4>
+            <h2> {{user.bio}} </h2>
             <UserPostAndComment />
         </div>
         <div v-else>
             <h1><i class="far fa-user"></i> {{userUsername}} </h1>
-            <h4> {{userBio}} </h4>
+            <h2> {{userBio}} </h2>
             <UserPostAndComment />
         </div>
   </div>
@@ -64,8 +64,9 @@
         h1 {
             margin: 35px 0 35px 0;
             color: #1b5ad4;
+            font-size: 30px;
         }
-        h4 {
+        h2 {
             margin: 35px 0 35px 0;
         }
         .fas {

@@ -53,7 +53,7 @@
 <style>
     .like {
         color: #1b5ad4;
-        font-size: 2vw;
+        font-size: 1.5rem;
     }
     .like:hover {
         cursor: pointer;
