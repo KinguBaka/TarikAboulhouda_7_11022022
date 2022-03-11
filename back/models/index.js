@@ -19,7 +19,19 @@ if (config.use_env_variable === 'production') {
   const { port } = dbUrl;
   config.host = host;
   config.port = port;
-  sequelize = new Sequelize(dbName, username, password, config);
+  sequelize = new Sequelize(dbName, username, password, config, {
+    logging,
+    define: {
+      freezeTableName: true,
+    },
+    trim: true,
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    }
+  });
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
