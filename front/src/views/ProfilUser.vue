@@ -71,7 +71,7 @@
         }
         .fas {
             color: #1b5ad4;
-            font-size: 3vw;
+            font-size: 2vmax;
             margin-right: 0;
             float: right;
         }
