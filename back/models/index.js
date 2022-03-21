@@ -31,6 +31,7 @@ if (config.use_env_variable === 'production') {
       idle: 10000,
     }
   });
+  console.log("connexion à la DB réussite !");
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
