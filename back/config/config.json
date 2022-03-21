@@ -14,14 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "mysql",
-    "protocol": "mysql",
-    "dialectOptions": {
-      "ssl": { 
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
+    "username": "b0668a670ced9b",
+    "password": "435fc9bd",
+    "database": "heroku_1210d9ce5e30650",
+    "host": "eu-cdbr-west-02.cleardb.net",
+    "dialect": "mysql"
   }
 }
