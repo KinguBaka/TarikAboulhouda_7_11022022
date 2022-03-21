@@ -15,10 +15,11 @@ if (config.use_env_variable === 'production') {
   const username = process.env.username;
   const password = process.env.password;
   const host = process.env.host;
+  const dbname = process.env.dbname;
   const { port } = dbUrl;
   config.host = host;
   config.port = port;
-  sequelize = new Sequelize(username, password, config, {
+  sequelize = new Sequelize(dbname, username, password, config, {
     define: {
       freezeTableName: true,
     },
