@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable === 'production') {
-  /*const { DATABASE_URL } = process.env;
+  const { DATABASE_URL } = process.env;
   const dbUrl = url.parse(DATABASE_URL);
   const username = dbUrl.auth.substr(0, dbUrl.auth.indexOf(':'));
   const password = dbUrl.auth.substr(dbUrl.auth.indexOf(':') + 1, dbUrl.auth.length);
@@ -32,16 +32,6 @@ if (config.use_env_variable === 'production') {
       idle: 10000,
     }
   });
-  console.log("connexion à la DB réussite !");*/
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    }
-  }
-);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
