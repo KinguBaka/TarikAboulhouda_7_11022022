@@ -217,7 +217,7 @@
             border-radius: 50px;
             i {
                 color: #1b5ad4;
-                font-size: 15px;
+                font-size: 3vmin;
                 float: right;
 
             }
@@ -233,11 +233,12 @@
             color: black;
         }
 
-        #exit {
+        #exit i{
            color: #1b5ad4;
-            font-size: 20px;
+            font-size: 2vmax;
             position: relative;
-            margin-right: -110% ;
+            margin-right: -100% ;
+            margin-top: 20px;
             text-decoration: none;
         }
 

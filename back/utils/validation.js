@@ -18,7 +18,7 @@ exports.verifLogin =[
     .not().matches(/^$|\s+/).withMessage('Mauvais mot de passe renseigné (ne dois pas contenit un espace)'),
     // Bio validation
     check('bio').optional()
-    .isLength({max:254}).withMessage('Votre bio est trop longue (doit faire moin de 255 caractères)')
+    .isLength({ max:254}).withMessage('Votre bio est trop longue (doit faire moin de 255 caractères)')
 ];
 
 exports.verifModif =[
@@ -38,7 +38,7 @@ exports.verifModif =[
     .not().matches(/^$|\s+/).withMessage('Mauvais mot de passe renseigné (ne dois pas contenit un espace)'),
     // Bio validation
     check('bio').optional()
-    .isLength({max:254}).withMessage('Votre bio est trop longue (doit faire moin de 255 caractères)')
+    .isLength({max: 254}).withMessage('Votre bio est trop longue (doit faire moin de 255 caractères)')
 ];
 
 exports.verifPost = [

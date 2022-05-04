@@ -163,8 +163,8 @@
             border-radius: 50px;
 
             .edit{
-                margin: 15px;
-                font-size: 2vw;
+                margin:  0 2vw 0 2vw;
+                font-size: 3vmin;
                 position: absolute;
                 right: 0;
                 color: #1b5ad4;
@@ -180,7 +180,7 @@
 
             .edit{
                 margin: 15px;
-                font-size: 1.5vw;
+                font-size: 2vmin;
                 position: absolute;
                 right: 0;
                 color: #1b5ad4;
