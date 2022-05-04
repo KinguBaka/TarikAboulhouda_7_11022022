@@ -32,6 +32,6 @@ server.use(function(req, res, next) {
 server.use('/api/', apiRouter);
 
 // launch server
-server.listen(process.env.PORTBACK || process.env.PORT, function(){
-    console.log('Serveur en écoute sur le port : ' + process.env.PORTBACK);
+server.listen(process.env.PORTBACK || 3000, function(){
+    console.log('Serveur en écoute sur le port : ' + process.env.PORTBACK || 3000);
 });

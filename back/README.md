@@ -7,6 +7,8 @@ initialisation du back :
 
 API nodejs / express & BDD basé sur MySQL
 
+Utilisation de MAMP pour lancer la base de donnée (voir /config/config.json pour les identifiants de la BDD)
+
 Routes & requêtes :
 
 "http://localhost:3000/api" + 
