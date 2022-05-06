@@ -3,7 +3,9 @@ initialisation du back :
 
 "npm install" : Installation des dépendences
 
-"nodemon" : Lancement sur le port 3000 par default
+"npm run create" : premier lancement pour creer et initialisé la bdd + lancement sur le port 3000 par default
+
+"nodemon" ou "npm run start": Lancement sur le port 3000 par default
 
 API nodejs / express & BDD basé sur MySQL
 
