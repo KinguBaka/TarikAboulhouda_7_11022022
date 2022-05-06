@@ -9,7 +9,7 @@ module.exports = {
             userId: userData.id,
             isAdmin: userData.isAdmin
         },
-        process.env.JWT_SIGN_SECRET,
+        process.env.JWT_SIGN_SECRET || "BonjourJeSuisUnTest",
         {
             expiresIn: '12h'
         })
@@ -24,7 +24,7 @@ module.exports = {
         var token = module.exports.parseAuthorization(authorization);
         if (token != null) {
             try {
-                var jwtToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
+                var jwtToken = jwt.verify(token, process.env.JWT_SIGN_SECRET || "BonjourJeSuisUnTest");
                 if (jwtToken != null)
                     userId = jwtToken.userId;
             } catch (err) {}
@@ -37,7 +37,7 @@ module.exports = {
         var token = module.exports.parseAuthorization(authorization);
         if (token != null) {
             try {
-                var jwtToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
+                var jwtToken = jwt.verify(token, process.env.JWT_SIGN_SECRET || "BonjourJeSuisUnTest");
                 if (jwtToken != null)
                 userIsAdmin = jwtToken.isAdmin;
             } catch (err) {}
