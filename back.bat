@@ -1,2 +1,2 @@
 cd back
-npm install && wait npm run create && wait npm run start
+npm install && npm run create && npm run start
