@@ -9,7 +9,7 @@
       </button>
       <div class="collapse navbar-collapse ml-auto" id="navbarNavAltMarkup">
         <div v-if="user" class="navbar-nav">
-          <router-link class="nav-link active" aria-current="page" to="/"><i class="fas fa-home"></i>   Acceuil</router-link>
+          <router-link class="nav-link active" aria-current="page" to="/"><i class="fas fa-home"></i>   Accueil</router-link>
           <router-link class="nav-link active" @click.prevent="majIdProfil()" :to="`/profilUser/${this.user.id}`"><i class="fas fa-user"></i>  Mon profil</router-link>
           <Logout/>
         </div>
