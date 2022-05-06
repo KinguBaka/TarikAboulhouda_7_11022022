@@ -57,7 +57,7 @@
                         this.modifTitle = '';
                         this.modifContent = '';
                         this.modifTitleAttachment = '';
-                        document.getElementById("file").value = '';
+                        document.getElementById("modifFile").value = '';
                         this.errors = '';
                     }
                 })
