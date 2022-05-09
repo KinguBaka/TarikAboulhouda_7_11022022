@@ -6,9 +6,9 @@ exports.verifLogin =[
     check('email').notEmpty().withMessage('Email requis !')
     .normalizeEmail().isEmail().withMessage('Doit-être un email valide !'),
     // username validation
-    check('username').isLength({min:4, max:13}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
+    check('username').isLength({min:4, max:20}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
     .notEmpty().withMessage('username required')
-    .matches(/^[a-zA-Z ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
+    .matches(/^[A-zÀ-ú ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
     // password validation
     check('password').notEmpty().withMessage('Mot de passe requis !')
     .isLength({min:5, max:12}).withMessage('Mauvais mot de passe renseigné (doit faire entre 5 - 12 caractéres)')
@@ -27,8 +27,8 @@ exports.verifModif =[
     .normalizeEmail().isEmail().withMessage('Doit-être un email valide !'),
     // username validation
     check('username').optional()
-    .isLength({min:4, max:13}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
-    .matches(/^[a-zA-Z ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
+    .isLength({min:4, max:20}).withMessage('Mauvais username renseigné (doit faire entre 4 - 13 caractéres)')
+    .matches(/^[A-zÀ-ú ]*$/).withMessage('Carractéres spéciaux (hors espace ) refusés !'),
     // password validation
     check('password').optional()
     .isLength({min:5, max:12}).withMessage('Mauvais mot de passe renseigné (doit faire entre 5 - 12 caractéres)')
