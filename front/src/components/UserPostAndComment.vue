@@ -106,6 +106,8 @@
             },
             userProfil(id) {
                 this.$store.dispatch('idProfil', id)
+                this.listUserPosts(this.idProfil),
+                this.listComment()
                 this.$forceUpdate()
             }
         },
