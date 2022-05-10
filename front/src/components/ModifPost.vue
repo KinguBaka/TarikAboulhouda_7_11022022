@@ -10,7 +10,7 @@
                 <p class="warningMessage" v-if="this.errors.title"> {{errors.title.msg}}</p>
                 <textarea  rows="6" require v-model="modifContent" class="form-control" placeholder="Que voulez-vous dire?"></textarea>
                 <p class="warningMessage" v-if="this.errors.content"> {{errors.content.msg}}</p>
-                <input class="form-control" type="file" id="modiffile" ref="modifFile" accept="image/png, image/jpeg" @change="modifFileUpload()">
+                <input class="form-control" type="file" id="modifFile" ref="modifFile" accept="image/png, image/jpeg" @change="modifFileUpload()">
                 <button  @click.prevent="updatePost(postId)" class="btn btn-primary">Modifier</button>
             </div>
         </div>
@@ -26,7 +26,7 @@
             return {
                 modifTitle:'',
                 modifContent:'',
-                modifTitleAttachment:'',
+                modifAttachment:'',
                 errors: ''
             }
         },
